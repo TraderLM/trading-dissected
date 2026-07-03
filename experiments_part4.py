@@ -10,10 +10,11 @@ backtested twice on the same path:
   (b) realistic:  fill only when the minute-level price trades through the
       level by 0.1%, on the reasoning that a resting order sits behind the
       queue that already existed at that price.
-The simulation is used deliberately: on real candle data the intrabar
-sequence is unobservable, so the true fill outcome is unknowable. In a
-simulation the full path exists and the candle backtest can be scored
-against ground truth.
+The simulation is used deliberately: only there is the strategy's true
+edge known to exist, because the process mean-reverts by construction, so
+the gap between the two runs is attributable to the fill assumption alone.
+The trade-through margin stands in for the queue a resting order waits
+behind; it is a stipulated convention, not an order book model.
 
 Experiment 2 (Part 4b): the expected quality of the best worthless strategy.
 100 configurations, each taking a random long or short position every day,
